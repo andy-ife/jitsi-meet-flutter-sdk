@@ -72,9 +72,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation ('org.jitsi.react:jitsi-meet-sdk:11.6.0') {
         exclude group: 'com.facebook.react', module: 'react-android'
+        exclude group: 'com.facebook.ract', module: 'hermes-android'
         transitive = true
     }
     implementation("com.facebook.react:react-android:0.77.2") {
+        attributes {
+            attribute(Attribute.of("com.android.build.api.attributes.BuildTypeAttr", String), "release") 
+        }
+    }
+    implementation("com.facebook.react:hermes-android:0.77.2") {
         attributes {
             attribute(Attribute.of("com.android.build.api.attributes.BuildTypeAttr", String), "release") 
         }
